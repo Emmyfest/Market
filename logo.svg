@@ -1,0 +1,23 @@
+<svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Heart-shaped leaf logo for "Farm Fresh" -->
+  <path d="M12 6.5C10.5 4.5 8 4 6.5 4C4.5 4 3 5.5 3 7.5C3 11 7 14 12 18C17 14 21 11 21 7.5C21 5.5 19.5 4 17.5 4C16 4 13.5 4.5 12 6.5Z" 
+        stroke="#5a9216" 
+        stroke-width="2" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"
+        fill="none" />
+  
+  <!-- Leaf detail -->
+  <path d="M12 15C9 12.5 7 10.5 7 8.5C7 7.5 7.5 7 8 7C9 7 10 9 12 12" 
+        stroke="#5a9216" 
+        stroke-width="1" 
+        stroke-linecap="round"
+        fill="none" />
+  
+  <!-- Optional: Add a stem -->
+  <path d="M12 18V20" 
+        stroke="#5a9216" 
+        stroke-width="2" 
+        stroke-linecap="round" 
+        fill="none" />
+</svg>

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Farm Fresh Marketplace</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div class="page-container">
+        <!-- Header -->
+        <header class="main-header">
+            <div class="container">
+                <div class="logo-container">
+                    <a href="index.html" class="logo">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
+                            <path d="M12 6.5C10.5 4.5 8 4 6.5 4C4.5 4 3 5.5 3 7.5C3 11 7 14 12 18C17 14 21 11 21 7.5C21 5.5 19.5 4 17.5 4C16 4 13.5 4.5 12 6.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>Farm Fresh</span>
+                    </a>
+                </div>
+                
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="products.html" class="nav-link">Products</a></li>
+                        <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                        <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="header-actions">
+                    <div class="theme-toggle">
+                        <input type="checkbox" id="theme-toggle-checkbox" class="theme-toggle-checkbox">
+                        <label for="theme-toggle-checkbox" class="theme-toggle-label">
+                            <i class="fas fa-sun"></i>
+                            <i class="fas fa-moon"></i>
+                            <span class="toggle-ball"></span>
+                        </label>
+                    </div>
+                    
+                    <a href="cart.html" class="cart-icon active">
+                        <i class="fas fa-shopping-basket"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                    
+                    <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                        <span class="hamburger-icon"></span>
+                    </button>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Breadcrumbs -->
+        <div class="breadcrumbs">
+            <div class="container">
+                <ul class="breadcrumb-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li>Shopping Cart</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Cart Page Main Content -->
+        <main class="cart-page">
+            <div class="container">
+                <div class="cart-container">
+                    <h1>Your Shopping Cart</h1>
+                    
+                    <div id="cart-content">
+                        <!-- Cart items will be populated by JavaScript -->
+                        <div class="loading-spinner">
+                            <i class="fas fa-spinner fa-spin"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="empty-cart-message" id="empty-cart-message" style="display: none;">
+                        <div class="empty-cart-icon">
+                            <i class="fas fa-shopping-basket"></i>
+                        </div>
+                        <h2>Your cart is empty</h2>
+                        <p>Looks like you haven't added any products to your cart yet.</p>
+                        <a href="products.html" class="btn btn-primary">Start Shopping</a>
+                    </div>
+                    
+                    <div class="cart-actions" id="cart-actions" style="display: none;">
+                        <div class="continue-shopping">
+                            <a href="products.html" class="btn btn-outline">
+                                <i class="fas fa-arrow-left"></i> Continue Shopping
+                            </a>
+                        </div>
+                        <div class="update-cart">
+                            <button id="update-cart-btn" class="btn btn-secondary">
+                                <i class="fas fa-sync-alt"></i> Update Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Order Summary -->
+                <div class="order-summary-container" id="order-summary" style="display: none;">
+                    <div class="order-summary">
+                        <h2>Order Summary</h2>
+                        
+                        <div class="summary-item">
+                            <span>Subtotal</span>
+                            <span id="subtotal-price">$0.00</span>
+                        </div>
+                        
+                        <div class="summary-item">
+                            <span>Shipping</span>
+                            <span id="shipping-cost">$0.00</span>
+                        </div>
+                        
+                        <div class="summary-item tax">
+                            <span>Tax</span>
+                            <span id="tax-amount">$0.00</span>
+                        </div>
+                        
+                        <div class="summary-item promo-code">
+                            <div class="promo-input">
+                                <input type="text" id="promo-code" placeholder="Enter promo code">
+                                <button id="apply-promo" class="btn btn-small">Apply</button>
+                            </div>
+                        </div>
+                        
+                        <div class="summary-item discount" id="discount-container" style="display: none;">
+                            <span>Discount</span>
+                            <span id="discount-amount">-$0.00</span>
+                        </div>
+                        
+                        <div class="summary-total">
+                            <span>Total</span>
+                            <span id="total-price">$0.00</span>
+                        </div>
+                        
+                        <button id="checkout-btn" class="btn btn-primary checkout-btn">
+                            Proceed to Checkout
+                        </button>
+                    </div>
+                    
+                    <!-- Payment Methods -->
+                    <div class="payment-methods">
+                        <h3>We Accept</h3>
+                        <div class="payment-icons">
+                            <i class="fab fa-cc-visa"></i>
+                            <i class="fab fa-cc-mastercard"></i>
+                            <i class="fab fa-cc-amex"></i>
+                            <i class="fab fa-cc-paypal"></i>
+                            <i class="fab fa-cc-apple-pay"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <!-- Checkout Modal -->
+        <div class="modal" id="checkout-modal">
+            <div class="modal-content">
+                <button class="modal-close" id="close-modal" aria-label="Close modal">
+                    <i class="fas fa-times"></i>
+                </button>
+                
+                <div class="checkout-form-container">
+                    <h2>Complete Your Order</h2>
+                    
+                    <form id="checkout-form" class="checkout-form">
+                        <div class="form-section">
+                            <h3>Contact Information</h3>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-section">
+                            <h3>Shipping Address</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="first-name">First Name</label>
+                                    <input type="text" id="first-name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="last-name">Last Name</label>
+                                    <input type="text" id="last-name" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Address</label>
+                                <input type="text" id="address" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="apartment">Apartment, suite, etc. (optional)</label>
+                                <input type="text" id="apartment">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="city">City</label>
+                                    <input type="text" id="city" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="state">State</label>
+                                    <input type="text" id="state" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="zip">ZIP Code</label>
+                                    <input type="text" id="zip" required>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-section">
+                            <h3>Payment Method</h3>
+                            <div class="payment-options">
+                                <label class="payment-option">
+                                    <input type="radio" name="payment" value="credit-card" checked>
+                                    <span class="payment-label">
+                                        <i class="far fa-credit-card"></i>
+                                        Credit Card
+                                    </span>
+                                </label>
+                                <label class="payment-option">
+                                    <input type="radio" name="payment" value="paypal">
+                                    <span class="payment-label">
+                                        <i class="fab fa-paypal"></i>
+                                        PayPal
+                                    </span>
+                                </label>
+                            </div>
+                            
+                            <div id="credit-card-fields">
+                                <div class="form-group">
+                                    <label for="card-number">Card Number</label>
+                                    <input type="text" id="card-number" placeholder="1234 5678 9012 3456" required>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="card-name">Name on Card</label>
+                                        <input type="text" id="card-name" required>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="expiry">Expiry Date</label>
+                                        <input type="text" id="expiry" placeholder="MM/YY" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cvv">CVV</label>
+                                        <input type="text" id="cvv" placeholder="123" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-section">
+                            <div class="order-review">
+                                <h3>Order Review</h3>
+                                <div class="review-total">
+                                    <span>Total:</span>
+                                    <span id="review-total-price">$0.00</span>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary place-order-btn">
+                                Place Order
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Order Success Modal -->
+        <div class="modal" id="success-modal">
+            <div class="modal-content success-content">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h2>Order Placed Successfully!</h2>
+                <p>Thank you for your order. Your order has been received and is being processed.</p>
+                <p>Order confirmation has been sent to your email.</p>
+                <div class="order-number">
+                    <span>Order Number:</span>
+                    <span id="order-number">#FMF5423789</span>
+                </div>
+                <button id="continue-shopping-btn" class="btn btn-primary">Continue Shopping</button>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <footer class="main-footer" id="contact">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-column">
+                        <div class="footer-logo">
+                            <a href="index.html">
+                                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
+                                    <path d="M12 6.5C10.5 4.5 8 4 6.5 4C4.5 4 3 5.5 3 7.5C3 11 7 14 12 18C17 14 21 11 21 7.5C21 5.5 19.5 4 17.5 4C16 4 13.5 4.5 12 6.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span>Farm Fresh</span>
+                            </a>
+                        </div>
+                        <p>Connecting local farmers with households for fresh, organic produce since 2015.</p>
+                        <div class="social-links">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Quick Links</h3>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="products.html">Products</a></li>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="cart.html">Your Cart</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Categories</h3>
+                        <ul class="footer-links">
+                            <li><a href="products.html?category=vegetables">Vegetables</a></li>
+                            <li><a href="products.html?category=fruits">Fruits</a></li>
+                            <li><a href="products.html?category=dairy">Dairy & Eggs</a></li>
+                            <li><a href="products.html?category=meat">Meat & Poultry</a></li>
+                            <li><a href="products.html?category=bakery">Bakery</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Contact Us</h3>
+                        <ul class="contact-info">
+                            <li><i class="fas fa-map-marker-alt"></i> University of Ibadan</li>
+                            <li><i class="fas fa-phone"></i> +234 - 9016545587</li>
+                            <li><i class="fas fa-envelope"></i> info@farmfresh.com</li>
+                            <li><i class="fas fa-clock"></i> Mon-Fri: 8am-6pm, Sat: 9am-5pm</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <p>&copy; 2023 Farm Fresh - Farmers' Marketplace. All rights reserved.</p>
+                    <div class="footer-bottom-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">FAQ</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="main.js"></script>
+    <script src="cart.js"></script>
+    <script src="theme.js"></script>
+</body>
+</html>

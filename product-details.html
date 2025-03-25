@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - Farm Fresh Marketplace</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div class="page-container">
+        <!-- Header -->
+        <header class="main-header">
+            <div class="container">
+                <div class="logo-container">
+                    <a href="index.html" class="logo">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
+                            <path d="M12 6.5C10.5 4.5 8 4 6.5 4C4.5 4 3 5.5 3 7.5C3 11 7 14 12 18C17 14 21 11 21 7.5C21 5.5 19.5 4 17.5 4C16 4 13.5 4.5 12 6.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>Farm Fresh</span>
+                    </a>
+                </div>
+                
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="products.html" class="nav-link active">Products</a></li>
+                        <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                        <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="header-actions">
+                    <div class="theme-toggle">
+                        <input type="checkbox" id="theme-toggle-checkbox" class="theme-toggle-checkbox">
+                        <label for="theme-toggle-checkbox" class="theme-toggle-label">
+                            <i class="fas fa-sun"></i>
+                            <i class="fas fa-moon"></i>
+                            <span class="toggle-ball"></span>
+                        </label>
+                    </div>
+                    
+                    <a href="cart.html" class="cart-icon">
+                        <i class="fas fa-shopping-basket"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                    
+                    <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                        <span class="hamburger-icon"></span>
+                    </button>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Breadcrumbs -->
+        <div class="breadcrumbs">
+            <div class="container">
+                <ul class="breadcrumb-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li id="breadcrumb-product-name">Product Details</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Product Details Main Content -->
+        <main class="product-details-page">
+            <div class="container">
+                <div class="product-details-container" id="product-details">
+                    <!-- Product details will be populated by JavaScript -->
+                    <div class="loading-spinner">
+                        <i class="fas fa-spinner fa-spin"></i>
+                    </div>
+                </div>
+                
+                <!-- Product Tabs -->
+                <div class="product-tabs">
+                    <div class="tabs-header">
+                        <button class="tab-btn active" data-tab="description">Description</button>
+                        <button class="tab-btn" data-tab="nutrition">Nutrition Information</button>
+                        <button class="tab-btn" data-tab="reviews">Reviews</button>
+                    </div>
+                    
+                    <div class="tabs-content">
+                        <div class="tab-panel active" id="description-panel">
+                            <div class="loading-spinner tab-spinner">
+                                <i class="fas fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-panel" id="nutrition-panel">
+                            <div class="loading-spinner tab-spinner">
+                                <i class="fas fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-panel" id="reviews-panel">
+                            <div class="loading-spinner tab-spinner">
+                                <i class="fas fa-spinner fa-spin"></i>
+                            </div>
+                            
+                            <div class="review-form-container">
+                                <h3>Write a Review</h3>
+                                <form id="review-form" class="review-form">
+                                    <div class="form-group">
+                                        <label for="review-name">Your Name</label>
+                                        <input type="text" id="review-name" required>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="review-rating">Rating</label>
+                                        <div class="rating-selector">
+                                            <i class="far fa-star" data-rating="1"></i>
+                                            <i class="far fa-star" data-rating="2"></i>
+                                            <i class="far fa-star" data-rating="3"></i>
+                                            <i class="far fa-star" data-rating="4"></i>
+                                            <i class="far fa-star" data-rating="5"></i>
+                                        </div>
+                                        <input type="hidden" id="review-rating" value="0" required>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="review-text">Your Review</label>
+                                        <textarea id="review-text" rows="4" required></textarea>
+                                    </div>
+                                    
+                                    <button type="submit" class="btn btn-primary">Submit Review</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Related Products -->
+                <section class="related-products">
+                    <h2>You May Also Like</h2>
+                    <div class="related-products-container" id="related-products">
+                        <!-- Related products will be populated by JavaScript -->
+                        <div class="loading-spinner">
+                            <i class="fas fa-spinner fa-spin"></i>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+        
+        <!-- Recently Viewed Products -->
+        <section class="recently-viewed">
+            <div class="container">
+                <h2>Recently Viewed</h2>
+                <div class="recently-viewed-container" id="recently-viewed">
+                    <!-- Recently viewed products will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer class="main-footer" id="contact">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-column">
+                        <div class="footer-logo">
+                            <a href="index.html">
+                                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
+                                    <path d="M12 6.5C10.5 4.5 8 4 6.5 4C4.5 4 3 5.5 3 7.5C3 11 7 14 12 18C17 14 21 11 21 7.5C21 5.5 19.5 4 17.5 4C16 4 13.5 4.5 12 6.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span>Farm Fresh</span>
+                            </a>
+                        </div>
+                        <p>Connecting local farmers with households for fresh, organic produce since 2015.</p>
+                        <div class="social-links">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Quick Links</h3>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="products.html">Products</a></li>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="cart.html">Your Cart</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Categories</h3>
+                        <ul class="footer-links">
+                            <li><a href="products.html?category=vegetables">Vegetables</a></li>
+                            <li><a href="products.html?category=fruits">Fruits</a></li>
+                            <li><a href="products.html?category=dairy">Dairy & Eggs</a></li>
+                            <li><a href="products.html?category=meat">Meat & Poultry</a></li>
+                            <li><a href="products.html?category=bakery">Bakery</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Contact Us</h3>
+                        <ul class="contact-info">
+                            <li><i class="fas fa-map-marker-alt"></i> University of Ibadan</li>
+                            <li><i class="fas fa-phone"></i> +234 - 8108357213</li>
+                            <li><i class="fas fa-envelope"></i> info@farmfresh.com</li>
+                            <li><i class="fas fa-clock"></i> Mon-Fri: 8am-6pm, Sat: 9am-5pm</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <p>&copy; 2023 Farm Fresh - Farmers' Marketplace. All rights reserved.</p>
+                    <div class="footer-bottom-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">FAQ</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="main.js"></script>
+    <script src="product-details.js"></script>
+    <script src="theme.js"></script>
+</body>
+</html>

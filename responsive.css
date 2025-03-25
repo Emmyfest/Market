@@ -1,0 +1,295 @@
+/* 
+* Farm Fresh - Farmers' Marketplace
+* Responsive Stylesheet
+*/
+
+/* Tablet and smaller desktop */
+@media screen and (max-width: 1200px) {
+    /* General */
+    .container {
+        padding: 0 var(--spacing-md);
+    }
+    
+    /* Featured Products */
+    .featured-products {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    /* Benefits */
+    .benefits-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-md);
+    }
+    
+    /* Related Products */
+    .related-products-container,
+    .recently-viewed-container {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-md);
+    }
+}
+
+/* Smaller tablets */
+@media screen and (max-width: 992px) {
+    /* Header */
+    .main-nav {
+        display: none;
+    }
+    
+    .main-nav.active {
+        display: flex;
+        position: absolute;
+        top: var(--navbar-height);
+        left: 0;
+        right: 0;
+        background-color: var(--background-color);
+        box-shadow: 0 2px 10px var(--shadow-color);
+        padding: var(--spacing-md) 0;
+        flex-direction: column;
+        z-index: var(--z-dropdown);
+    }
+    
+    .nav-list {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .nav-item {
+        margin: 0;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .nav-link {
+        display: block;
+        padding: var(--spacing-md) 0;
+    }
+    
+    .mobile-menu-toggle {
+        display: block;
+    }
+    
+    /* Hero Section */
+    .hero-section {
+        height: 500px;
+    }
+    
+    .slide-content {
+        max-width: 500px;
+    }
+    
+    .slide-content h1 {
+        font-size: 2rem;
+    }
+    
+    /* Products Page */
+    .products-wrapper {
+        grid-template-columns: 1fr;
+    }
+    
+    .product-filters {
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    .filter-body {
+        display: none;
+    }
+    
+    .filter-body.active {
+        display: block;
+    }
+    
+    .filter-toggle-mobile {
+        display: block;
+    }
+    
+    .products-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Product Details */
+    .product-details-container {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    /* Cart Page */
+    .cart-page .container {
+        grid-template-columns: 1fr;
+    }
+    
+    .order-summary-container {
+        margin-top: var(--spacing-lg);
+    }
+    
+    /* Footer */
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        gap: var(--spacing-md);
+        text-align: center;
+    }
+    
+    .footer-bottom-links {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .footer-bottom-links a:first-child {
+        margin-left: 0;
+    }
+}
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+    /* Typography */
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.75rem;
+    }
+    
+    /* Hero Section */
+    .hero-section {
+        height: 450px;
+    }
+    
+    .slide-content {
+        margin-left: 0;
+        width: 90%;
+        padding: var(--spacing-md);
+    }
+    
+    .slide-content h1 {
+        font-size: 1.75rem;
+    }
+    
+    /* Featured Products */
+    .featured-products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Why Choose Us */
+    .benefits-container {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Testimonials */
+    .testimonials-container {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Subscribe Form */
+    .subscribe-form {
+        flex-direction: column;
+    }
+    
+    .subscribe-form input {
+        width: 100%;
+        border-radius: var(--border-radius-md);
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    .subscribe-form button {
+        width: 100%;
+        border-radius: var(--border-radius-md);
+    }
+    
+    /* Cart Table */
+    .cart-table thead {
+        display: none;
+    }
+    
+    .cart-table, .cart-table tbody, .cart-table tr, .cart-table td {
+        display: block;
+        width: 100%;
+    }
+    
+    .cart-table tr {
+        margin-bottom: var(--spacing-lg);
+        padding-bottom: var(--spacing-lg);
+        border-bottom: 1px solid var(--border-color);
+    }
+    
+    .cart-table td {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        text-align: right;
+        position: relative;
+        border-bottom: none;
+    }
+    
+    .cart-table td::before {
+        content: attr(data-label);
+        float: left;
+        font-weight: 500;
+        color: var(--text-light);
+    }
+    
+    .cart-product {
+        justify-content: flex-end;
+    }
+    
+    /* Checkout Form */
+    .form-row {
+        flex-direction: column;
+    }
+    
+    .payment-options {
+        flex-direction: column;
+    }
+    
+    /* Related Products */
+    .related-products-container,
+    .recently-viewed-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Small Mobile */
+@media screen and (max-width: 480px) {
+    /* Logo */
+    .logo span {
+        font-size: 1.25rem;
+    }
+    
+    /* Header Actions */
+    .theme-toggle {
+        margin-right: var(--spacing-sm);
+    }
+    
+    /* Hero Section */
+    .hero-section {
+        height: 400px;
+    }
+    
+    .slide-content h1 {
+        font-size: 1.5rem;
+    }
+    
+    /* Featured Products */
+    .featured-products {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Products Container */
+    .products-container {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Related Products */
+    .related-products-container,
+    .recently-viewed-container {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Footer */
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farm Fresh - Farmers' Marketplace</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div class="page-container">
+        <!-- Header -->
+        <header class="main-header">
+            <div class="container">
+                <div class="logo-container">
+                    <a href="index.html" class="logo">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
+                            <path d="M12 6.5C10.5 4.5 8 4 6.5 4C4.5 4 3 5.5 3 7.5C3 11 7 14 12 18C17 14 21 11 21 7.5C21 5.5 19.5 4 17.5 4C16 4 13.5 4.5 12 6.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>Farm Fresh</span>
+                    </a>
+                </div>
+                
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="index.html" class="nav-link active">Home</a></li>
+                        <li class="nav-item"><a href="products.html" class="nav-link">Products</a></li>
+                        <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                        <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="header-actions">
+                    <div class="theme-toggle">
+                        <input type="checkbox" id="theme-toggle-checkbox" class="theme-toggle-checkbox">
+                        <label for="theme-toggle-checkbox" class="theme-toggle-label">
+                            <i class="fas fa-sun"></i>
+                            <i class="fas fa-moon"></i>
+                            <span class="toggle-ball"></span>
+                        </label>
+                    </div>
+                    
+                    <a href="cart.html" class="cart-icon">
+                        <i class="fas fa-shopping-basket"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                    
+                    <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                        <span class="hamburger-icon"></span>
+                    </button>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Hero Section with Carousel -->
+        <section class="hero-section">
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-slide active">
+                        <div class="slide-content">
+                            <h1>Fresh from Farm to Table</h1>
+                            <p>Support local farmers and enjoy the freshest produce for your family</p>
+                            <a href="products.html" class="btn btn-primary">Shop Now</a>
+                        </div>
+                        <div class="slide-background bg-1"></div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="slide-content">
+                            <h1>Organic & Sustainable</h1>
+                            <p>Discover organic vegetables, fruits, and dairy products from local farms</p>
+                            <a href="products.html" class="btn btn-primary">Explore</a>
+                        </div>
+                        <div class="slide-background bg-2"></div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="slide-content">
+                            <h1>Seasonal Specials</h1>
+                            <p>The best of each season delivered directly to your doorstep</p>
+                            <a href="products.html" class="btn btn-primary">View Specials</a>
+                        </div>
+                        <div class="slide-background bg-3"></div>
+                    </div>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-arrow prev" aria-label="Previous slide">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="carousel-indicators">
+                        <button class="indicator active" data-slide="0" aria-label="Slide 1"></button>
+                        <button class="indicator" data-slide="1" aria-label="Slide 2"></button>
+                        <button class="indicator" data-slide="2" aria-label="Slide 3"></button>
+                    </div>
+                    <button class="carousel-arrow next" aria-label="Next slide">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Featured Products Section -->
+        <section class="featured-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Featured Products</h2>
+                    <p>Handpicked by our team for the best quality and value</p>
+                </div>
+                
+                <div class="featured-products" id="featured-products">
+                    <!-- Products will be populated by JavaScript -->
+                    <div class="loading-spinner">
+                        <i class="fas fa-spinner fa-spin"></i>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <a href="products.html" class="btn btn-secondary">View All Products</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Why Choose Us Section -->
+        <section class="why-choose-us">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Why Choose Us</h2>
+                    <p>Discover the benefits of our farmers' marketplace</p>
+                </div>
+                
+                <div class="benefits-container">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3>100% Organic</h3>
+                        <p>All our products are certified organic, free from harmful chemicals and pesticides.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h3>Fast Delivery</h3>
+                        <p>We ensure prompt delivery to maintain the freshness of all products.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3>Support Local</h3>
+                        <p>Every purchase directly supports local farmers and their families.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h3>Sustainable</h3>
+                        <p>We promote sustainable farming methods that protect our environment.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Testimonials Section -->
+        <section class="testimonials-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>What Our Customers Say</h2>
+                    <p>Hear from families who love our fresh produce</p>
+                </div>
+                
+                <div class="testimonials-container">
+                    <div class="testimonial-card">
+                        <div class="quote-icon">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="testimonial-text">"I've been ordering weekly produce boxes for six months now. The quality is incomparable to supermarket produce, and I love knowing exactly where my food comes from."</p>
+                        <div class="testimonial-author">
+                            <h4>Emmanuel Oladipo</h4>
+                            <p>Loyal Customer</p>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="quote-icon">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="testimonial-text">"As a chef, I'm particular about ingredients. Farm Fresh delivers consistently exceptional produce that makes a noticeable difference in my dishes."</p>
+                        <div class="testimonial-author">
+                            <h4>Favour Akeredolu</h4>
+                            <p>Professional Chef</p>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="quote-icon">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="testimonial-text">"The convenience of having farm-fresh produce delivered to my door has been a game-changer for my busy family. The kids even get excited about eating vegetables now!"</p>
+                        <div class="testimonial-author">
+                            <h4>Orji Laurel</h4>
+                            <p>Mother of Three</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Subscribe Section -->
+        <section class="subscribe-section">
+            <div class="container">
+                <div class="subscribe-content">
+                    <h2>Stay Updated</h2>
+                    <p>Subscribe to our newsletter for seasonal updates, recipes, and exclusive offers.</p>
+                    <form class="subscribe-form">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer class="main-footer" id="contact">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-column">
+                        <div class="footer-logo">
+                            <a href="index.html">
+                                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
+                                    <path d="M12 6.5C10.5 4.5 8 4 6.5 4C4.5 4 3 5.5 3 7.5C3 11 7 14 12 18C17 14 21 11 21 7.5C21 5.5 19.5 4 17.5 4C16 4 13.5 4.5 12 6.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span>Farm Fresh</span>
+                            </a>
+                        </div>
+                        <p>Connecting local farmers with households for fresh, organic produce since 2015.</p>
+                        <div class="social-links">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Quick Links</h3>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="products.html">Products</a></li>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="cart.html">Your Cart</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Categories</h3>
+                        <ul class="footer-links">
+                            <li><a href="products.html?category=vegetables">Vegetables</a></li>
+                            <li><a href="products.html?category=fruits">Fruits</a></li>
+                            <li><a href="products.html?category=dairy">Dairy & Eggs</a></li>
+                            <li><a href="products.html?category=meat">Meat & Poultry</a></li>
+                            <li><a href="products.html?category=bakery">Bakery</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Contact Us</h3>
+                        <ul class="contact-info">
+                            <li><i class="fas fa-map-marker-alt"></i> University of Ibadan</li>
+                            <li><i class="fas fa-phone"></i> +234 - 8108357213</li>
+                            <li><i class="fas fa-envelope"></i> info@farmfresh.com</li>
+                            <li><i class="fas fa-clock"></i> Mon-Fri: 8am-6pm, Sat: 9am-5pm</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Farm Fresh - Farmers' Marketplace. All rights reserved.</p>
+                    <div class="footer-bottom-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">FAQ</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="main.js"></script>
+    <script src="carousel.js"></script>
+    <script src="theme.js"></script>
+    <script src="products.js"></script>
+</body>
+</html>
